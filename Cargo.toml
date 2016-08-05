@@ -1,0 +1,6 @@
+[package]
+name = "alfred_crates"
+version = "0.1.0"
+authors = ["Kilian Koeltzsch <me@kilian.io>"]
+
+[dependencies]
