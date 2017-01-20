@@ -4,3 +4,5 @@ version = "0.1.0"
 authors = ["Kilian Koeltzsch <me@kilian.io>"]
 
 [dependencies]
+alfred = "2.0"
+crates_search = "0.1"
