@@ -5,7 +5,7 @@ use std::env;
 use std::io;
 
 fn main() {
-    // let query = env::args().nth(1).unwrap_or("none".to_owned());
+    let query = env::args().nth(1).expect("Failed reading user input");
 
     match crates_search::search(&query) {
         Ok(crates) => {
