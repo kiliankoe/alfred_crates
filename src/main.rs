@@ -35,6 +35,9 @@ fn crate_to_item<'a>(krate: &crates_search::Crate) -> alfred::Item<'a> {
                  krate.documentation_url
                      .clone()
                      .unwrap_or(format!("https://docs.rs/{}", krate.name.clone())))
+        .subtitle_mod(alfred::Modifier::Shift, "Open repository")
+        .arg_mod(alfred::Modifier::Shift,
+                 krate.repository_url.clone().unwrap_or("".to_owned()))
         .subtitle_mod(alfred::Modifier::Option, "Insert as Cargo.toml dependency")
         .arg_mod(alfred::Modifier::Option,
                  format!("{} = \"{}\"", krate.name.clone(), krate.version.clone()))

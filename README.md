@@ -16,6 +16,8 @@ Just type `crate` followed by your search term. Hit ⏎ (enter) to open that cra
 
 Holding ⌘ (command) and hitting ⏎ (enter) will open the documentation.
 
+Holding ⇧ (shift) and hitting ⏎ (enter) will open the repository.
+
 Holding ⌥ (option) and hitting ⏎ (enter) will insert the most current version of the selected crate into your `Cargo.toml` as a dependency, e.g. `alfred = "2.0.1"`.
 
 ## Problems?
