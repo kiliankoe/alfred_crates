@@ -9,8 +9,7 @@ fn main() {
 
     match crates_search::search(&query) {
         Ok(crates) => {
-            let items =
-                crates.iter().map(|krate| crate_to_item(krate)).collect::<Vec<alfred::Item>>();
+            let items = crates.iter().map(crate_to_item).collect::<Vec<alfred::Item>>();
             let _ = alfred::json::write_items(io::stdout(), &items);
         }
         Err(err) => {
