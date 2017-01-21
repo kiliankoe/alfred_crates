@@ -7,9 +7,20 @@ use std::io;
 fn main() {
     // let query = env::args().nth(1).unwrap_or("none".to_owned());
 
-    let crates = crates_search::search("alfred").unwrap();
-    let items = crates.iter().map(|krate| crate_to_item(krate)).collect::<Vec<alfred::Item>>();
-    let _ = alfred::json::write_items(io::stdout(), &items);
+    match crates_search::search(&query) {
+        Ok(crates) => {
+            let items =
+                crates.iter().map(|krate| crate_to_item(krate)).collect::<Vec<alfred::Item>>();
+            let _ = alfred::json::write_items(io::stdout(), &items);
+        }
+        Err(err) => {
+            let _ = alfred::json::write_items(io::stdout(),
+                                              &[alfred::ItemBuilder::new("Unexpected error \
+                                                                          loading crates 😵")
+                                                    .subtitle(format!("{}", err))
+                                                    .into_item()]);
+        }
+    }
 }
 
 // TODO: Is there a way around all that `.clone()`ing?
