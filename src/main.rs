@@ -1,35 +1,31 @@
-struct Crate {
-    name: String,
-    author: String,
-    link: String,
-}
+extern crate alfred;
+extern crate crates_search;
 
-impl Crate {
-    fn to_xml(&self) -> String {
-        format!("<item arg=\"{}\">
-<title>{}</title>
-<subtitle>{}</subtitle>
-</item>", self.link, self.name, self.author)
-    }
-}
+use std::env;
+use std::io;
 
 fn main() {
-    let crate1 = Crate {
-        name: "crate1".to_owned(),
-        author: "author".to_owned(),
-        link: "https://github.com/author/crate1".to_owned(),
-    };
-    let crate2 = Crate {
-        name: "crate2".to_owned(),
-        author: "author".to_owned(),
-        link: "https://github.com/author/crate2".to_owned(),
-    };
+    // let query = env::args().nth(1).unwrap_or("none".to_owned());
 
-    let crates = [crate1, crate2];
+    let crates = crates_search::search("alfred").unwrap();
+    let items = crates.iter().map(|krate| crate_to_item(krate)).collect::<Vec<alfred::Item>>();
+    let _ = alfred::json::write_items(io::stdout(), &items);
+}
 
-    println!("<?xml version=\"1.0\"?><items>");
-    for c in crates.iter() {
-        println!("{}", c.to_xml());
-    }
-    println!("</items></xml>");
+// TODO: Is there a way around all that `.clone()`ing?
+fn crate_to_item<'a>(krate: &crates_search::Crate) -> alfred::Item<'a> {
+    alfred::ItemBuilder::new(format!("{} v{}", krate.name.clone(), krate.version.clone()))
+        .subtitle(krate.description.clone().unwrap_or("No description available".to_owned()))
+        .arg(krate.homepage_url
+            .clone()
+            .unwrap_or(format!("https://crates.io/crates/{}", krate.name.clone())))
+        .subtitle_mod(alfred::Modifier::Command, "Open documentation")
+        .arg_mod(alfred::Modifier::Command,
+                 krate.documentation_url
+                     .clone()
+                     .unwrap_or(format!("https://docs.rs/{}", krate.name.clone())))
+        .subtitle_mod(alfred::Modifier::Option, "Insert as Cargo.toml dependency")
+        .arg_mod(alfred::Modifier::Option,
+                 format!("{} = \"{}\"", krate.name.clone(), krate.version.clone()))
+        .into_item()
 }
