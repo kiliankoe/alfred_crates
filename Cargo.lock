@@ -2,7 +2,7 @@
 name = "alfred_crates"
 version = "0.1.0"
 dependencies = [
- "alfred 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "alfred 2.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "crates_search 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -17,7 +17,7 @@ dependencies = [
 
 [[package]]
 name = "alfred"
-version = "2.0.0"
+version = "2.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "rustc-serialize 0.3.19 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -463,7 +463,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [metadata]
 "checksum advapi32-sys 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "e06588080cb19d0acb6739808aafa5f26bfb2ca015b2b6370028b44cf7cb8a9a"
-"checksum alfred 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)" = "74aa235f690e56af45cb239cbeb3acb5594e12c9a2bdfcdd577acb1149673765"
+"checksum alfred 2.0.1 (registry+https://github.com/rust-lang/crates.io-index)" = "e51ca2cadb530ab20240eef10eab930d1c913ec5356425093b6877f8533ab7b2"
 "checksum bitflags 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)" = "aad18937a628ec6abcd26d1489012cc0e18c21798210f491af69ded9b881106d"
 "checksum core-foundation 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "20a6d0448d3a99d977ae4a2aa5a98d886a923e863e81ad9ff814645b6feb3bbd"
 "checksum core-foundation-sys 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "05eed248dc504a5391c63794fe4fb64f46f071280afaa1b73308f3c0ce4574c5"
