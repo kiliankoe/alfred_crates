@@ -3,6 +3,12 @@ name = "alfred_crates"
 version = "0.1.1"
 authors = ["Kilian Koeltzsch <me@kilian.io>"]
 
+description = "Search crates.io from Alfred."
+homepage = "https://github.com/kiliankoe/alfred_crates"
+repository = "https://github.com/kiliankoe/alfred_crates"
+
+license = "MIT"
+
 [dependencies]
 alfred = "2.0"
 crates_search = "0.1"
