@@ -12,13 +12,9 @@ Just head over to the [releases page](https://github.com/kiliankoe/alfred_crates
 
 ![screenshot](https://i.imgur.com/Rof9Bqp.png)
 
-Just type `crate` followed by your search term. Hit ⏎ (enter) to open that crate's homepage.
+Just type `crate` followed by your search term. Hit <kbd>enter</kbd> to open that crate's homepage.
 
-Holding ⌘ (command) and hitting ⏎ (enter) will open the documentation.
-
-Holding ⇧ (shift) and hitting ⏎ (enter) will open the repository.
-
-Holding ⌥ (option) and hitting ⏎ (enter) will insert the most current version of the selected crate into your `Cargo.toml` as a dependency, e.g. `alfred = "2.0.1"`.
+<kbd>cmd</kbd>+<kbd>enter</kbd> opens the documentation, <kbd>shift</kbd>+<kbd>enter</kbd> opens the repository and <kbd>option</kbd>+<kbd>enter</kbd> inserts the most current version of the selected crate into your currently active editor formatted for your `Cargo.toml`, e.g. `alfred = "2.0.1"`.
 
 ## Problems?
 
